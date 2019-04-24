@@ -20,13 +20,19 @@
       color: white;
       padding: 20px;
     }
+
+	.responsive {
+	  max-width: 1000px;
+	  width: 100%;
+	  height: auto;
+	}
   </style>
 </head>
 
 <body>
   <div class="container-fluid">
     <div class="box">
-      <div class='col-lg-4'>
+      <div>
         <h1>
           Mission to Mars
           <a class="btn btn-primary btn-md" href="/scrape" role="button">Refresh Data</a>
@@ -52,9 +58,9 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-12 col-lg-9">
-        <div class="box">
+        <div class="box" width=400px>
           <h3>Featured Image</h3>
-          <img src={{ mars.featured_image_url }} alt="The Image of the Day" width='900' height=auto>
+          <img src={{ mars.featured_image_url }} alt="The Image of the Day" class='responsive'>
         </div>
       </div>
       <div>
@@ -127,7 +133,7 @@
         <div class='col-md-6'>
           <div>
             <p>
-              <img src={{ mars.hemi_list[0]['img_url'] }} alt="Cerberus" width="500" height="500">
+              <img src={{ mars.hemi_list[0]['img_url'] }} alt="Cerberus" class='responsive'>
             </p>
             <strong>{{ mars.hemi_list[0]['title'] }}</strong>
             <hr />
@@ -135,7 +141,7 @@
         </div>
         <div class='col-md-6'>
           <p>
-            <img src={{ mars.hemi_list[1]['img_url'] }} alt="Schiaparelli" width="500" height="500">
+            <img src={{ mars.hemi_list[1]['img_url'] }} alt="Schiaparelli" class='responsive'>
           </p>
           <strong>{{ mars.hemi_list[1]['title'] }}</strong>
           <hr />
@@ -144,14 +150,14 @@
       <div class='row'>
         <div class='col-md-6'>
           <p>
-            <img src={{ mars.hemi_list[2]['img_url'] }} alt="Syrtis Major" width="500" height="500">
+            <img src={{ mars.hemi_list[2]['img_url'] }} alt="Syrtis Major" class='responsive'>
           </p>
           <strong>{{ mars.hemi_list[2]['title'] }}</strong>
           <hr />
         </div>
         <div class='col-md-6'>
           <p>
-            <img src={{ mars.hemi_list[3]['img_url'] }} alt="Valles Marineris" width="500" height="500">
+            <img src={{ mars.hemi_list[3]['img_url'] }} alt="Valles Marineris" class='responsive'>
           </p>
           <strong>{{ mars.hemi_list[3]['title'] }}</strong>
           <hr />

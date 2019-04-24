@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mars Weather</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style>
+    body {
+      background-color: dodgerblue;
+      padding: 50px;
+    }
+
+    .box {
+      background-color: #333399;
+      border-radius: 15px;
+      color: white;
+      padding: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="box">
+      <div class='col-lg-4'>
+        <h1>
+          Mission to Mars
+          <a class="btn btn-primary btn-md" href="/scrape" role="button">Refresh Data</a>
+        </h1>
+      </div>
+    </div>
+  </div>
+  <hr />
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12 col-lg-12">
+        <div class="box">
+          <h3>Latest News</h3>
+          <strong> {{ mars.news_title }} </strong>
+          <p> {{ mars.news_p }} </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr />
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12 col-lg-9">
+        <div class="box">
+          <h3>Featured Image</h3>
+          <img src={{ mars.featured_image_url }} alt="The Image of the Day" width='900' height=auto>
+        </div>
+      </div>
+      <div>
+        <hr />
+      </div>
+
+      <div class="col-sm-12 col-lg-3">
+        <div class='row'>
+          <div class="box">
+            <h3>Current Weather</h3>
+            {{ mars.mars_weather }}
+          </div>
+        </div>
+        <hr />
+
+        <div class='row'>
+          <div class="box">
+            <h3>Planet Data</h3>
+            <table border="1" class="dataframe">
+              <tbody>
+                <tr>
+                  <td>Equatorial Diameter:</td>
+                  <td>6,792 km</td>
+                </tr>
+                <tr>
+                  <td>Polar Diameter:</td>
+                  <td>6,752 km</td>
+                </tr>
+                <tr>
+                  <td>Mass:</td>
+                  <td>6.42 x 10^23 kg (10.7% Earth)</td>
+                </tr>
+                <tr>
+                  <td>Moons:</td>
+                  <td>2 (Phobos &amp; Deimos)</td>
+                </tr>
+                <tr>
+                  <td>Orbit Distance:</td>
+                  <td>227,943,824 km (1.52 AU)</td>
+                </tr>
+                <tr>
+                  <td>Orbit Period:</td>
+                  <td>687 days (1.9 years)</td>
+                </tr>
+                <tr>
+                  <td>Surface Temperature:</td>
+                  <td>-153 to 20 °C</td>
+                </tr>
+                <tr>
+                  <td>First Record:</td>
+                  <td>2nd millennium BC</td>
+                </tr>
+                <tr>
+                  <td>Recorded By:</td>
+                  <td>Egyptian astronomers</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr />
+
+  <div class="container-fluid">
+    <div class="box">
+      <h3>Mars Hemispheres</h3>
+      <div class='row'>
+        <div class='col-md-6'>
+          <div>
+            <p>
+              <img src={{ mars.hemi_list[0]['img_url'] }} alt="Cerberus" width="500" height="500">
+            </p>
+            <strong>{{ mars.hemi_list[0]['title'] }}</strong>
+            <hr />
+          </div>
+        </div>
+        <div class='col-md-6'>
+          <p>
+            <img src={{ mars.hemi_list[1]['img_url'] }} alt="Schiaparelli" width="500" height="500">
+          </p>
+          <strong>{{ mars.hemi_list[1]['title'] }}</strong>
+          <hr />
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-md-6'>
+          <p>
+            <img src={{ mars.hemi_list[2]['img_url'] }} alt="Syrtis Major" width="500" height="500">
+          </p>
+          <strong>{{ mars.hemi_list[2]['title'] }}</strong>
+          <hr />
+        </div>
+        <div class='col-md-6'>
+          <p>
+            <img src={{ mars.hemi_list[3]['img_url'] }} alt="Valles Marineris" width="500" height="500">
+          </p>
+          <strong>{{ mars.hemi_list[3]['title'] }}</strong>
+          <hr />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <hr />
+</body>
+
+</html>
